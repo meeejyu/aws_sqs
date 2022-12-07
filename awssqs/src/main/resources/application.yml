@@ -1,0 +1,25 @@
+# spring:
+#   thymeleaf:
+#       prefix: classpath:templates/
+#       suffix: .html
+spring:
+  config:
+    import: classpath:/awskey.yml
+
+logging:
+    level:
+        com:
+            amazonaws:
+                util:
+                    EC2MetadataUtils: error
+
+cloud:
+  aws:
+    region:
+      static: ap-northeast-2 # AWS SQS의 리전정보
+    stack:
+      auto: false
+    sqs:
+      queue:
+        name: userInfo	
+        url: https://sqs.ap-northeast-2.amazonaws.com/843354017769/userInfo 
